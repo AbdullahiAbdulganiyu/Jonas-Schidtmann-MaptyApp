@@ -265,12 +265,12 @@ class App {
 
     console.log(workout);
 
-    // this.#map.setView(workout.coords, this.#mapZoomLevel, {
-    //   animate: true,
-    //   pan: {
-    //     duration: 1,
-    //   },
-    // });
+    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+      animate: true,
+      pan: {
+        duration: 1,
+      },
+    });
   }
 }
 
