@@ -112,6 +112,8 @@ class App {
     // Handling click on map
     this.#map.on('click', this._showForm.bind(this));
     console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+
+    this.#workouts.forEach(work => this._renderWorkoutMarker(work));
   }
   _showForm(mapE) {
     this.#mapEvent = mapE;
@@ -308,6 +310,7 @@ class App {
 
     // Rendering the workout on page load/ reload
     this.#workouts.forEach(work => this._renderWorkout(work));
+    // this.#workouts.forEach(work => this._renderWorkoutMarker(work));
   }
 }
 
