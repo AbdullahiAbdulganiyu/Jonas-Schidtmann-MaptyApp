@@ -182,9 +182,12 @@ class App {
 
     // Render workout on list
     this._renderWorkout(workout);
+
     //   Hide form + clear form inputs
-    // prettier-ignore
-    this._hideForm()
+    this._hideForm();
+
+    // Set localstorage to all workouts
+    this._setLocalStorage();
   }
 
   _renderWorkoutMarker(workout) {
@@ -281,6 +284,10 @@ class App {
 
     // using the public interface
     workout.click();
+  }
+
+  _setLocalStorage() {
+    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
   }
 }
 
