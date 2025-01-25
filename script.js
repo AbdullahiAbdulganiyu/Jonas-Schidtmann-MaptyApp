@@ -81,6 +81,7 @@ class App {
     this._getPosition();
 
     // get data from localStorage
+    this._getLocalStorage();
 
     // Attach evenlisteners
     form.addEventListener('submit', this._newWorkOut.bind(this));
@@ -292,7 +293,21 @@ class App {
   }
 
   _setLocalStorage() {
+    // JSON.stringify is used to convert an object to a string
     localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+  }
+
+  _getLocalStorage() {
+    // JSON.parse is used to convert a string into an object
+    const data = JSON.parse(localStorage.getItem('workouts'));
+    console.log(data);
+
+    if (!data) return;
+
+    this.#workouts = data;
+
+    // Rendering the workout on page load/ reload
+    this.#workouts.forEach(work => this._renderWorkout(work));
   }
 }
 
