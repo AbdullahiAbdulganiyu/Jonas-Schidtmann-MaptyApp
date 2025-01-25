@@ -77,7 +77,12 @@ class App {
   #mapEvent;
   #workouts = [];
   constructor() {
+    // Get users position
     this._getPosition();
+
+    // get data from localStorage
+
+    // Attach evenlisteners
     form.addEventListener('submit', this._newWorkOut.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
