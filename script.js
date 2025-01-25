@@ -304,6 +304,11 @@ class App {
     // Rendering the workout on page load/ reload
     this.#workouts.forEach(work => this._renderWorkout(work));
   }
+
+  reset() {
+    localStorage.removeItem('workouts');
+    location.reload();
+  }
 }
 
 const app = new App();
