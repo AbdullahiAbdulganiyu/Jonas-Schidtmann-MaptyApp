@@ -203,7 +203,7 @@ class App {
   _renderWorkout(workout) {
     let html = `
 
-    <li class="workout workout--${workout.type}" data-id="1234567890">
+    <li class="workout workout--${workout.type}" data-id="${workout.id}">
         <h2 class="workout__title">${workout.description}</h2>
         <div class="workout__details">
             <span class="workout__icon">${
@@ -263,7 +263,9 @@ class App {
       work => work.id === workoutEl.dataset.id
     );
 
+    console.log(this.#workouts);
     console.log(workout);
+    console.log(workoutEl);
 
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
       animate: true,
