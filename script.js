@@ -111,7 +111,7 @@ class App {
 
     // Handling click on map
     this.#map.on('click', this._showForm.bind(this));
-    console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
+    // console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
 
     this.#workouts.forEach(work => this._renderWorkoutMarker(work));
   }
@@ -182,7 +182,6 @@ class App {
 
     // Add new element to workout array
     this.#workouts.push(workout);
-    console.log(workout);
 
     // Render workout on map as marker
     // console.log(this.#mapEvent);
@@ -271,17 +270,12 @@ class App {
 
   _moveToPopup(e) {
     const workoutEl = e.target.closest('.workout');
-    console.log(workoutEl);
 
     if (!workoutEl) return;
 
     const workout = this.#workouts.find(
       work => work.id === workoutEl.dataset.id
     );
-
-    console.log(this.#workouts);
-    console.log(workout);
-    console.log(workoutEl);
 
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
       animate: true,
@@ -302,7 +296,6 @@ class App {
   _getLocalStorage() {
     // JSON.parse is used to convert a string into an object
     const data = JSON.parse(localStorage.getItem('workouts'));
-    console.log(data);
 
     if (!data) return;
 
@@ -310,7 +303,6 @@ class App {
 
     // Rendering the workout on page load/ reload
     this.#workouts.forEach(work => this._renderWorkout(work));
-    // this.#workouts.forEach(work => this._renderWorkoutMarker(work));
   }
 }
 
