@@ -3,6 +3,7 @@
 class WorkOut {
   date = new Date();
   id = (Date.now() + '').slice(-10);
+  clicks = 0;
   constructor(coords, distance, duration) {
     this.coords = coords; // [lat,lng]
     this.distance = distance; // km
@@ -17,6 +18,10 @@ class WorkOut {
       months[this.date.getMonth()]
     } 
     ${this.date.getDate()}`;
+  }
+
+  click() {
+    this.clicks++;
   }
 }
 
@@ -273,6 +278,9 @@ class App {
         duration: 1,
       },
     });
+
+    // using the public interface
+    workout.click();
   }
 }
 
